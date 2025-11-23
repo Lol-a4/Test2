@@ -38,20 +38,32 @@ header {
 * 2. GRILLE ET CARTES
 ***************************************************** */
 .event-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px; 
+    /* Utilisation de Flexbox pour une disposition sur une seule ligne */
+    display: flex;
+    /* Empêche les éléments de passer à la ligne suivante */
+    flex-wrap: nowrap; 
+    /* Centre le bloc entier dans le conteneur parent (section explore) */
+    justify-content: left; 
+    /* Ajoute un espacement entre les cartes (votre ancien gap) */
+    gap: 10px; 
+    /* Force le défilement horizontal si la ligne dépasse la taille de l'écran */
+    overflow-x: auto; 
+    /* S'assure que la grille prend la largeur minimale nécessaire */
+    width: auto; 
+    padding-bottom: 10px; /* Ajoute de l'espace pour la barre de défilement */
 }
 
 .event-card {
+    /* Ajoute ceci pour que chaque carte ait une taille fixe et ne s'étire pas */
+    flex-shrink: 0; 
+    width: 280px; /* Définit une largeur fixe pour toutes les cartes */
     background-color: #1a202c;
     border-radius: 10px;
     overflow: hidden; 
     border: 1px solid #374151;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    cursor: pointer; /* Indique qu'on peut cliquer pour voir les détails */
+    cursor: pointer; 
     transition: transform 0.2s;
-}
 
 .event-card:hover {
     transform: translateY(-5px); 
@@ -63,13 +75,15 @@ header {
     object-fit: cover; 
 }
 
-.event-info {
-    padding: 15px;
-}
 
 .event-details {
     font-size: 14px; /* Augmenté légèrement pour être plus lisible */
-    color: var(--text-muted);
+    color: #9ca3af;
     margin: 5px 0 10px 0;
+}
+
+.event-info {
+    padding: 15px;
+    text-align: center;
 }
 
