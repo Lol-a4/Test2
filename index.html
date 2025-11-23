@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon premier site GitHub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Pulse - Projet Débutant</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <h1>Bonjour GitHub </h1>
-  <p>Ceci est mon premier fichier HTML envoyé depuis Git Bash lol</p>
-  <img src="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg" >
+
+    <header>
+        <h1>Campus Pulse Simplifié</h1>
+        <div class="user-info">
+            <i class="fas fa-user-circle"></i> Alex Étudiant
+        </div>
+    </header>
+
+    <section id="explore" class="page-section active">
+        <h2>Événements à Venir</h2>
+        <p class="subtitle">Cliquez sur un événement pour voir les détails et vous inscrire.</p>
+        
+        <div class="event-grid" id="events-grid">
+            </div>
+    </section>
+
+    <div id="event-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('event-modal')">&times;</span>
+            
+            <div class="event-image-modal">
+                <img id="modal-img" src="" alt="Image Événement">
+            </div>
+            
+            <h3 id="modal-title">Titre de l'événement</h3>
+            <p id="modal-date-loc" class="modal-date-loc">Date • Lieu</p>
+            
+            <p id="modal-desc" class="modal-desc"></p>
+            
+            <div class="modal-footer-info">
+                <span class="modal-spots-text">Places restantes : <strong id="modal-spots">12</strong></span>
+                <span id="modal-category" class="modal-category-tag">Catégorie</span>
+            </div>
+
+            <button id="modal-action-btn" class="action-button register-btn" onclick="handleRegistration()">
+                Réserver ma place
+            </button>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
