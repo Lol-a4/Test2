@@ -74,18 +74,6 @@ function renderEventsGrid() {
 }
 
 
-
-
-
-// *****************************************************
-// --- 4. FONCTION POUR FERMER LE POPUP ---
-// *****************************************************
-function closeModal(modalId) {
-    // Retire la classe 'is-active' pour cacher la modale.
-    document.getElementById(modalId).classList.remove('is-active');
-}
-
-
 // *****************************************************
 // --- DÉMARRAGE : Appel initial ---
 // *****************************************************
