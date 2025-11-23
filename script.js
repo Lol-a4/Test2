@@ -74,26 +74,7 @@ function renderEventsGrid() {
 }
 
 
-// *****************************************************
-// --- 3. FONCTION POUR OUVRIR LE POPUP (MODALE) ---
-// *****************************************************
-function openEventModal(id) {
-    // 'find' cherche l'événement correspondant à l'ID
-    const evt = events.find(e => e.id === id); 
-    if(!evt) return; 
 
-    // Mise à jour du contenu du popup
-    document.getElementById('modal-title').innerText = evt.title;
-    document.getElementById('modal-category').innerText = evt.category;
-    document.getElementById('modal-date-loc').innerText = `${new Date(evt.start).toLocaleString('fr-FR')} • ${evt.location}`;
-    document.getElementById('modal-desc').innerText = evt.desc;
-    document.getElementById('modal-img').src = evt.img;
-    // On affiche simplement le nombre total de places (spots)
-    document.getElementById('modal-spots').innerText = evt.spots;
-
-    // Afficher la modale (ajoute la classe CSS 'is-active')
-    document.getElementById('event-modal').classList.add('is-active');
-}
 
 
 // *****************************************************
