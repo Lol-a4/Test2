@@ -1,173 +1,129 @@
+/* Définition des variables de couleurs et polices (facile à modifier !) */
+:root {
+    --dark-bg: #1A1A2E; /* Fond principal (très sombre) */
+    --card-bg: #2C3347; /* Fond de la carte (gris foncé) */
+    --primary-color: #00bcd4; /* Bleu Cyan moderne (couleur d'accent) */
+    --text-light: #F0F0F0; /* Texte clair */
+    --text-muted: #A0AEC0; /* Texte secondaire/gris */
+}
+
 /* *****************************************************
-* 1. STYLES GÉNÉRAUX 
-* Ces règles s'appliquent à l'ensemble du document.
+* 1. STYLES GÉNÉRAUX ET CENTRAGE
 ***************************************************** */
 body { 
-    /* Définit la police utilisée pour tout le texte */
-    font-family: Arial, sans-serif; 
-    /* Définit la couleur de fond très sombre (quasi noir) */
-    background-color: #0B0F19; 
-    /* Couleur du texte par défaut (gris clair) */
-    color: #e2e8f0; 
-    /* Enlève les marges par défaut et ajoute un espacement autour du contenu */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    
+    /* Utilisation de Flexbox pour centrer parfaitement la carte au milieu de l'écran */
+    display: flex; 
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    min-height: 100vh; /* Prend 100% de la hauteur de l'écran */
     margin: 0;
     padding: 20px;
 }
 
-h1, h2, h3 {
-    /* Sélecteur multiple : Tous les titres h1, h2, h3 sont en blanc pur */
-    color: white; 
-}
-
 /* *****************************************************
-* 2. HEADER (Tête de page)
+* 2. CARTE ÉVÉNEMENT
 ***************************************************** */
-header {
-    background-color: #111827; /* Couleur de la barre de navigation */
-    padding: 15px 30px; /* Espacement intérieur */
-    border-radius: 10px; /* Coins arrondis */
-    margin-bottom: 30px; /* Marge en bas pour séparer du contenu */
-    /* DISPLAY: FLEX est essentiel pour aligner des éléments sur une seule ligne */
-    display: flex;
-    /* 'space-between' écarte le titre et l'info utilisateur au maximum */
-    justify-content: space-between; 
-    /* Centre les éléments verticalement */
-    align-items: center;
+.event-container {
+    width: 90%;
+    max-width: 600px; /* Taille maximale de la carte */
+    background-color: var(--card-bg);
+    border-radius: 15px; /* Coins arrondis */
+    overflow: hidden;
+    /* Ombre pour donner un effet de profondeur */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
 }
 
-header h1 {
-    color: #6366f1; /* Applique une couleur primaire (Indigo) au titre de l'appli */
-    font-size: 24px;
+.event-image {
+    height: 250px;
+    overflow: hidden;
 }
-
-/* *****************************************************
-* 3. GRILLE D'ÉVÉNEMENTS (Les cartes)
-***************************************************** */
-.event-grid {
-    /* DISPLAY: GRID est utilisé pour créer une mise en page en grille */
-    display: grid;
-    /* 'grid-template-columns' : Crée des colonnes automatiques et adaptatives */
-    /* 'auto-fill' remplit la ligne, 'minmax(280px, 1fr)' assure que la carte 
-       fait au moins 280px et prend le maximum d'espace possible (1fr) */
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px; /* Espace entre les cases de la grille */
-}
-
-.event-card {
-    background-color: #1a202c; /* Couleur de fond de la carte */
-    border-radius: 10px;
-    overflow: hidden; /* Cache tout contenu qui dépasse les bords arrondis */
-    border: 1px solid #374151;
-    transition: transform 0.2s; /* Prépare l'animation au survol */
-}
-
-.event-card:hover {
-    /* :hover est une pseudo-classe qui s'applique quand la souris passe dessus */
-    transform: translateY(-5px); /* Décale la carte de 5px vers le haut (effet 3D léger) */
-}
-
 .event-image img {
     width: 100%;
-    height: 150px;
-    /* 'object-fit: cover' : Très important ! Il fait en sorte que l'image couvre 
-       toute la zone sans être déformée, quitte à être coupée. */
-    object-fit: cover; 
+    height: 100%;
+    object-fit: cover; /* L'image couvre la zone sans être déformée */
 }
 
 .event-info {
-    padding: 15px;
+    padding: 30px;
 }
 
-/* Tag "Inscrit" généré par le JavaScript */
-.registered-tag {
-    background-color: #10b981; /* Fond vert pour l'inscription */
-    color: black;
-    font-size: 10px;
-    padding: 3px 6px;
-    border-radius: 4px;
-    font-weight: bold;
-    display: inline-block; /* Permet au tag de prendre juste la place nécessaire */
+.event-category {
+    font-size: 14px;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
+
+.event-title {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.event-details {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    display: flex;
+    gap: 20px; /* Espace entre la date et le lieu */
+}
+
+.detail-item i {
+    margin-right: 8px;
+    color: var(--primary-color); /* Icônes de la couleur d'accent */
+}
+
 
 /* *****************************************************
-* 4. BOUTONS
+* 3. BOUTONS ET STATUT
 ***************************************************** */
 .action-button {
-    width: 100%; /* Le bouton prend toute la largeur du conteneur */
-    padding: 10px;
+    width: 100%;
+    padding: 15px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer; /* Change le curseur en main pour indiquer qu'on peut cliquer */
-}
-
-/* Style pour l'inscription (bleu) */
-.register-btn {
-    background-color: #6366f1;
-    color: white;
-}
-
-/* Style pour l'annulation (rouge) */
-.unregister-btn {
-    background-color: #ef4444; 
-    color: white;
-}
-
-/* *****************************************************
-* 5. MODALE (Le Popup)
-***************************************************** */
-.modal {
-    /* 'position: fixed' : Fige l'élément à l'écran, il ne bouge pas si on scroll */
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Crée un fond sombre et transparent qui couvre tout l'écran */
-    background-color: rgba(0, 0, 0, 0.7); 
-    
-    /* TRÈS IMPORTANT : Cache la modale par défaut */
-    display: none; 
-    
-    /* Centre le contenu de la modale au milieu de l'écran */
-    justify-content: center;
-    align-items: center;
-    
-    /* 'z-index' : Assure que la modale est au-dessus de tous les autres éléments */
-    z-index: 100; 
-}
-
-.modal.active {
-    /* Lorsque le JS ajoute la classe 'active', la modale s'affiche */
-    display: flex; 
-}
-
-.modal-content {
-    background-color: #1a202c; /* Couleur de la boîte du popup */
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 500px; /* Empêche le popup d'être trop large sur un grand écran */
-    position: relative; /* Permet de positionner la croix de fermeture par rapport à ce bloc */
-}
-
-.modal-close {
-    /* Positionne la croix par rapport au coin supérieur droit du 'modal-content' */
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
+    border-radius: 8px;
     cursor: pointer;
-    color: #9ca3af;
-}
-
-.event-image-modal img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.modal-date-loc {
-    color: #6366f1 !important; /* Force la couleur à être l'indigo */
+    font-size: 16px;
     font-weight: bold;
+    /* Transition pour un effet fluide au survol */
+    transition: transform 0.2s, background-color 0.2s; 
+    text-transform: uppercase;
+}
+
+/* Style du bouton "Réserver" */
+.register-btn {
+    background-color: var(--primary-color);
+    color: var(--dark-bg); /* Texte foncé sur fond clair */
+}
+
+/* Style du bouton "Annuler inscription" */
+.unregister-btn {
+    background-color: #e53e3e; /* Rouge pour l'annulation */
+    color: var(--text-light);
+}
+.action-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px); /* Bouton qui "saute" légèrement */
+}
+
+.status-message {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Couleur du message quand c'est inscrit */
+.status-registered {
+    color: #48bb78; /* Vert */
+}
+/* Couleur du message des places restantes */
+.status-spots {
+    color: var(--text-muted);
 }
