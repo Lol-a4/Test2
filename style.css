@@ -22,6 +22,13 @@ h1, h2 {
     color: var(--text-light);
 }
 
+header {
+    background-color: #111827;
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
 .subtitle {
     color: var(--text-muted);
     margin-bottom: 20px;
@@ -31,7 +38,6 @@ h1, h2 {
 * 2. GRILLE ET CARTES
 ***************************************************** */
 .event-grid {
-    /* Mise en page en grille adaptative (responsif) */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px; 
@@ -43,12 +49,12 @@ h1, h2 {
     overflow: hidden; 
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    cursor: pointer; /* Indique que l'élément est cliquable */
+    cursor: pointer; /* Indique qu'on peut cliquer pour voir les détails */
     transition: transform 0.2s;
 }
 
 .event-card:hover {
-    transform: translateY(-5px); /* Animation légère au survol */
+    transform: translateY(-5px); 
 }
 
 .event-image img {
@@ -61,63 +67,14 @@ h1, h2 {
     padding: 15px;
 }
 
-.registered-tag {
-    background-color: #10b981; /* Vert */
-    color: black;
-    font-size: 10px;
-    padding: 3px 6px;
-    border-radius: 4px;
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 5px;
-}
-
 .event-details {
-    font-size: 12px;
+    font-size: 14px; /* Augmenté légèrement pour être plus lisible */
     color: var(--text-muted);
-    margin-bottom: 10px;
+    margin: 5px 0 10px 0;
 }
 
 /* *****************************************************
-* 3. BOUTONS ET PROGRESSION
-***************************************************** */
-.action-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-/* Classes définies pour être utilisées par le JavaScript */
-.register-btn {
-    background-color: var(--primary-color); /* Indigo pour l'inscription */
-    color: white;
-}
-
-.unregister-btn {
-    background-color: #ef4444; /* Rouge pour l'annulation */
-    color: white;
-}
-
-/* Barre de progression simple */
-.progress-bar {
-    width: 100%; 
-    background-color: var(--border-color); 
-    border-radius: 4px; 
-    height: 5px; 
-    margin-bottom: 10px;
-}
-.progress-fill {
-    background-color: var(--primary-color);
-    height: 5px;
-    border-radius: 4px;
-}
-
-/* *****************************************************
-* 4. MODALE (Popup)
+* 3. MODALE (Popup)
 ***************************************************** */
 .modal {
     position: fixed; 
@@ -132,9 +89,8 @@ h1, h2 {
     z-index: 100;
 }
 
-/* Classe pour afficher la modale (ajoutée par le JS) */
 .modal.is-active {
-    display: flex;
+    display: flex; /* Classe pour afficher la modale */
 }
 
 .modal-content {
@@ -153,4 +109,17 @@ h1, h2 {
     font-size: 24px;
     cursor: pointer;
     color: var(--text-muted);
+}
+
+.modal-date-loc {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.modal-footer-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
 }

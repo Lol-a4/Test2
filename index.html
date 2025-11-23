@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Pulse - Version Basique</title>
+    <title>Événements - Version Essentielle</title>
     
     <link rel="stylesheet" href="style.css">
     
@@ -12,15 +12,12 @@
 <body>
 
     <header>
-        <h1>Campus Pulse Basique</h1>
-        <div class="user-info">
-            <i class="fas fa-user-circle"></i> Alex Étudiant
-        </div>
+        <h1>Liste des Événements du Campus</h1>
     </header>
 
     <section id="explore">
-        <h2>Événements à Découvrir</h2>
-        <p class="subtitle">Cliquez sur une carte pour voir les détails et gérer votre inscription.</p>
+        <h2>À l'affiche</h2>
+        <p class="subtitle">Cliquez sur une carte pour voir plus de détails.</p>
         
         <div class="event-grid" id="events-grid">
             </div>
@@ -39,17 +36,12 @@
             <p id="modal-desc" class="modal-desc"></p>
             
             <div class="modal-footer-info">
-                <span class="modal-spots-text">Places restantes : <strong id="modal-spots"></strong></span>
+                <span class="modal-spots-text">Places totales : <strong id="modal-spots"></strong></span>
                 <span id="modal-category" class="modal-category-tag"></span>
             </div>
-
-            <button id="modal-action-btn" class="action-button" onclick="handleRegistration()">
-                Action
-            </button>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-  
