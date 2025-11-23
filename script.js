@@ -46,6 +46,8 @@ function renderEventsGrid() {
     const grid = document.getElementById('events-grid');
     let htmlContent = ''; 
 
+  // ... dans renderEventsGrid()
+// ...
     // Parcours de tous les événements
     events.forEach(e => {
         
@@ -57,17 +59,26 @@ function renderEventsGrid() {
             </div>
             <div class="event-info">
                 <h3>${e.title}</h3>
-                <div class="event-details">
-                    <i class="fas fa-calendar"></i> ${new Date(e.start).toLocaleDateString('fr-FR')} 
-                    <span style="margin: 0 5px;">|</span>
-                    <i class="fas fa-map-marker-alt"></i> ${e.location}
+                
+                                <div class="event-details">
+                    
+                    <div class="event-detail-line"> 
+                        <i class="fas fa-calendar"></i> ${new Date(e.start).toLocaleDateString('fr-FR')} 
+                    </div>
+                    
+                    <div class="event-detail-line">
+                        <i class="fas fa-map-marker-alt"></i> ${e.location}
+                    </div>
+                    
                 </div>
-                <div style="font-size: 12px; color: var(--text-muted); margin-top: 5px;">
+                
+                <div style="font-size: 12px; color: var(--text-muted); margin-top: 15px;">
                     <i class="fas fa-users"></i> ${e.spots} places totales.
                 </div>
             </div>
         </div>`;
     });
+// ...
 
     // Injection du HTML dans la page
     grid.innerHTML = htmlContent;
