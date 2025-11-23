@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Événement Spotlight</title>
+    <title>Campus Pulse - Version Basique</title>
     
     <link rel="stylesheet" href="style.css">
     
@@ -11,35 +11,45 @@
 </head>
 <body>
 
-    <main class="event-container">
+    <header>
+        <h1>Campus Pulse Basique</h1>
+        <div class="user-info">
+            <i class="fas fa-user-circle"></i> Alex Étudiant
+        </div>
+    </header>
+
+    <section id="explore">
+        <h2>Événements à Découvrir</h2>
+        <p class="subtitle">Cliquez sur une carte pour voir les détails et gérer votre inscription.</p>
         
-        <div class="event-image">
-            <img id="event-img" src="" alt="Image de l'événement">
-        </div>
+        <div class="event-grid" id="events-grid">
+            </div>
+    </section>
 
-        <div class="event-info">
+    <div id="event-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('event-modal')">&times;</span>
             
-            <p id="event-category" class="event-category"></p>
-            <h1 id="event-title" class="event-title"></h1>
-            
-            <div class="event-details">
-                <span class="detail-item"><i class="fas fa-calendar"></i> <span id="event-date"></span></span>
-                <span class="detail-item"><i class="fas fa-map-marker-alt"></i> <span id="event-location"></span></span>
+            <div class="event-image-modal">
+                <img id="modal-img" src="" alt="Image Événement">
             </div>
             
-            <p id="event-description" style="margin-bottom: 20px;"></p>
-
-            <button id="main-action-btn" class="action-button" onclick="handleRegistration()"></button>
+            <h3 id="modal-title"></h3>
+            <p id="modal-date-loc" class="modal-date-loc"></p>
+            <p id="modal-desc" class="modal-desc"></p>
             
-            <div id="status-message" class="status-message">
-                Il reste <strong id="spots-count"></strong> places disponibles.
+            <div class="modal-footer-info">
+                <span class="modal-spots-text">Places restantes : <strong id="modal-spots"></strong></span>
+                <span id="modal-category" class="modal-category-tag"></span>
             </div>
 
+            <button id="modal-action-btn" class="action-button" onclick="handleRegistration()">
+                Action
+            </button>
         </div>
-    </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
   
